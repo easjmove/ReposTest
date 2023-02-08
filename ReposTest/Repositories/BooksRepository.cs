@@ -5,13 +5,18 @@ namespace BooksAPI.Managers
 {
     public class BooksRepository
     {
-        private static int _nextId = 1;
-        private readonly List<Book> Data = new List<Book>
+        private int _nextId = 1;
+        private readonly List<Book> Data;
+
+        public BooksRepository()
         {
-            new Book {Id = _nextId++, Title = "C# is nice", Price = 12.34},
-            new Book {Id = _nextId++, Title = "Python is even nicer", Price = 22.33}
-            // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/object-and-collection-initializers
-        };
+            Data = new List<Book>
+            {
+                new Book {Id = _nextId++, Title = "C# is nice", Price = 12.34},
+                new Book {Id = _nextId++, Title = "Python is even nicer", Price = 22.33}
+                // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/object-and-collection-initializers
+            };
+        }
 
         public List<Book> GetAll()
         {
